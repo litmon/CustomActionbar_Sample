@@ -1,9 +1,15 @@
 package com.example.fukuokadota.customactionbar_sample;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+
+import java.util.zip.Inflater;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -13,9 +19,23 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setCustomView(R.layout.custom_actionbar);
-    }
+        if(savedInstanceState == null){
+            View actionBarView = LayoutInflater.from(this).inflate(R.layout.custom_actionbar, null);
 
+            ActionBar.LayoutParams params = new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            ActionBar actionBar = getSupportActionBar();
+
+            actionBar.setCustomView(actionBarView, params);
+            actionBar.setDisplayShowCustomEnabled(true);
+
+            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setDisplayUseLogoEnabled(false);
+            actionBar.setDisplayShowHomeEnabled(false);
+            actionBar.setDisplayHomeAsUpEnabled(false);
+            actionBar.setDefaultDisplayHomeAsUpEnabled(false);
+
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
