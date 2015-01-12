@@ -1,6 +1,7 @@
 package com.example.fukuokadota.customactionbar_sample;
 
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBar.LayoutParams;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,17 +23,11 @@ public class MainActivity extends ActionBarActivity {
         if(savedInstanceState == null){
             View actionBarView = LayoutInflater.from(this).inflate(R.layout.custom_actionbar, null);
 
-            ActionBar.LayoutParams params = new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            LayoutParams params = new ActionBar.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
             ActionBar actionBar = getSupportActionBar();
 
             actionBar.setCustomView(actionBarView, params);
             actionBar.setDisplayShowCustomEnabled(true);
-
-            actionBar.setDisplayShowTitleEnabled(false);
-            actionBar.setDisplayUseLogoEnabled(false);
-            actionBar.setDisplayShowHomeEnabled(false);
-            actionBar.setDisplayHomeAsUpEnabled(false);
-            actionBar.setDefaultDisplayHomeAsUpEnabled(false);
 
         }
     }
